@@ -5,6 +5,7 @@ import json
 Dictionary to store data from transactions
 """
 
+with open('transactions.json, 'r') as arquive:
 transactions = {}
 id_transaction = 1
 
@@ -73,14 +74,15 @@ def checkBalance():
 def saveTransactions():
     """
     Function to save all the data provided by the user
+    in a JSON file
     For future checkings, and deleting
     """
 
     c = transactions.copy()
     c["idtransaction"] = id_transaction
 
-    with open('transactions.jason', 'a') as arquivo:
-        arquivo.write(json.dumps(c))
+    with open('transactions.jason', 'a') as file:
+        file.write(json.dumps(c))
 
 
 """
