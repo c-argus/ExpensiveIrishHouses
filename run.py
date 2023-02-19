@@ -13,7 +13,19 @@ Menu functions
 """
 
 def listTransactions():
-    pass
+    """
+    Get the values from the transactions dictionary
+    Print the transactions on the screen
+    for the user
+    """
+    if len(transactions) == 0:
+        print("\nNo transactions!")
+        return
+    print("\nYour transactions: ")
+
+    for data_stored in transactions.values():
+        print(f'{data_stored["id"]} - {data_stored["date"]} - {data_stored["name"]}: €{data_stored["value"]:.2f}')    
+    
 
 def addTransaction():
     """
