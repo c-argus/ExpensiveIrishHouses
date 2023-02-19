@@ -1,3 +1,13 @@
+from datetime import datetime
+import jason
+
+"""
+Dictionary to store data from transactions
+"""
+
+transactions = {}
+
+
 """
 Menu functions
 """
