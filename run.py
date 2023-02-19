@@ -3,11 +3,17 @@ import json
 
 """
 Dictionary to store data from transactions
+Handling exceptions in case json file is blank
 """
+try:
+    with open('transactions.json', 'r') as file:
+        transactions = json.loads(file.read())
 
-with open('transactions.json, 'r') as arquive:
-transactions = {}
-id_transaction = 1
+    id_transaction = transactions["idtransaction"]
+    transactions.pop("idtransaction")
+except:
+    transactions = {}
+    id_transaction = 1
 
 """
 Menu functions
