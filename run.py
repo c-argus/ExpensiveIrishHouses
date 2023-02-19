@@ -20,10 +20,21 @@ def addTransaction():
     Get transactions data input by the user
     All data stored in a dictionary
     """
+
+    """
+    Raises ValueError if strings 
+    cannot be converted to float.
+    """
+
     global id_transaction
 
     name = input('\nTransaction name: ')
-    value = float(input('Transaction value (use a - signal if expenses): '))
+    while True:
+        try: 
+            value = float(input('Transaction value (use a - signal if expenses): '))
+            break
+        except ValueError:
+            print("Invalid data. Please try again.")    
     date = str(datetime.now())
 
     data_stored = {
@@ -35,7 +46,8 @@ def addTransaction():
 
     transactions["id_" + str(id_transaction)] = data_stored
     id_transaction =+ 1
-    print("Data stored successfully!")
+    print("Data stored successfully!\n")
+
 
 def deleteTransaction():
     pass
