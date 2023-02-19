@@ -55,8 +55,6 @@ def addTransaction():
             break
         except ValueError:
             print("Invalid data. Please try again.")
-    else:
-        value = float(input('Transaction value (use a - signal if expenses): '))
     
     date = str(datetime.now())
 
