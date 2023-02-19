@@ -70,6 +70,18 @@ def editTransaction():
 def checkBalance():
     pass
 
+def saveTransactions():
+    """
+    Function to save all the data provided by the user
+    For future checkings, and deleting
+    """
+
+    c = transactions.copy()
+    c["idtransaction"] = id_transaction
+
+    with open('transactions.jason', 'a') as arquivo:
+        arquivo.write(json.dumps(c))
+
 
 """
 Get user to input an option on the menu.
