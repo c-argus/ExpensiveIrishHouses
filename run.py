@@ -25,8 +25,34 @@ so the user can input uppercase or not
 and it won't get an error message back
 """
 
-print ("Choose your option on the menu below:\n")
+"""
+Menu created by conditional statements 
+to prompt the user to enter their
+selection
+"""
+
+"""
+The options listTransaction, addTransaction and
+deleteTransaction will be stored in a dictionary.
+"""
 
 while True:
-    op = input ("L - List transactions \nA - Add transaction \nD - Delete transaction \nE - Edit transaction \nC - Check balance \nE - Exit \n\nType here").upper()
+    op = input ("Choose your option on the menu below: \nL - List transactions \nA - Add transaction \nD - Delete transaction \nE - Edit transaction \nC - Check balance \nX - Exit \n\nType here: ").upper()
+
+    if op == 'L':
+        listTransactions()
+    elif op == 'A':
+        addTransactions()
+    elif op == 'D':
+        deleteTransaction()
+    elif op == 'E':
+        editTransaction()
+    elif op == 'C':
+        checkBalance()
+    elif op == 'X':
+        exit()
+    else:
+        print("\nUnsupported choice! \n")
+
+
 
