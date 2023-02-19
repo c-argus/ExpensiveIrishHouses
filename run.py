@@ -78,7 +78,14 @@ deleteTransaction will be stored in a dictionary.
 """
 
 while True:
-    op = input ("Choose your option on the menu below: \nL - List transactions \nA - Add transaction \nD - Delete transaction \nE - Edit transaction \nC - Check balance \nX - Exit \n\nType here: ").upper()
+    op = input ("""\nChoose your option on the menu below: 
+    L - List transactions 
+    A - Add transaction 
+    D - Delete transaction 
+    E - Edit transaction 
+    C - Check balance 
+    X - Exit 
+    \rType here: """).upper()
 
     if op == 'L':
         listTransactions()
