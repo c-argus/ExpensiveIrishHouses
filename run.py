@@ -87,7 +87,7 @@ def checkBalance():
         balance += transaction["value"]
 
     print(f'Your balance is €{balance:.2f}')
-    
+
 def saveTransactions():
     """
     Function to save all the data provided by the user
@@ -134,10 +134,13 @@ while True:
         listTransactions()
     elif op == 'A':
         addTransaction()
+        saveTransactions()
     elif op == 'D':
         deleteTransaction()
+        saveTransactions()
     elif op == 'E':
         editTransaction()
+        saveTransactions()
     elif op == 'C':
         checkBalance()
     elif op == 'X':
