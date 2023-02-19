@@ -48,12 +48,16 @@ def addTransaction():
     global id_transaction
 
     name = input('\nTransaction name: ')
+
     while True:
-        try: 
+        try:
             value = float(input('Transaction value (use a - signal if expenses): '))
             break
         except ValueError:
-            print("Invalid data. Please try again.")    
+            print("Invalid data. Please try again.")
+    else:
+        value = float(input('Transaction value (use a - signal if expenses): '))
+    
     date = str(datetime.now())
 
     data_stored = {
@@ -75,8 +79,15 @@ def editTransaction():
     pass
 
 def checkBalance():
-    pass
+    """
+    Show balance on screen for the user
+    """
+    balance = 0
+    for transaction in transactions.values():
+        balance += transaction["value"]
 
+    print(f'Your balance is €{balance:.2f}')
+    
 def saveTransactions():
     """
     Function to save all the data provided by the user
@@ -87,7 +98,7 @@ def saveTransactions():
     c = transactions.copy()
     c["idtransaction"] = id_transaction
 
-    with open('transactions.jason', 'a') as file:
+    with open('transactions.json', 'w') as file:
         file.write(json.dumps(c))
 
 
