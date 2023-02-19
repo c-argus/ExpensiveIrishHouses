@@ -1,12 +1,12 @@
 from datetime import datetime
-import jason
+import json
 
 """
 Dictionary to store data from transactions
 """
 
 transactions = {}
-
+id_transaction = 1
 
 """
 Menu functions
@@ -16,7 +16,26 @@ def listTransactions():
     pass
 
 def addTransaction():
-    pass
+    """
+    Get transactions data input by the user
+    All data stored in a dictionary
+    """
+    global id_transaction
+
+    name = input('\nTransaction name: ')
+    value = float(input('Transaction value (use a - signal if expenses): '))
+    date = str(datetime.now())
+
+    data_stored = {
+        "name": name,
+        "value": value,
+        "date": date,
+        "id": str(id_transaction),
+    }
+
+    transactions["id_" + str(id_transaction)] = data_stored
+    id_transaction =+ 1
+    print("Data stored successfully!")
 
 def deleteTransaction():
     pass
@@ -52,7 +71,7 @@ while True:
     if op == 'L':
         listTransactions()
     elif op == 'A':
-        addTransactions()
+        addTransaction()
     elif op == 'D':
         deleteTransaction()
     elif op == 'E':
