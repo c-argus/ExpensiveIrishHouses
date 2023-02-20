@@ -71,7 +71,13 @@ def addTransaction():
 
 
 def deleteTransaction():
-    pass
+    """
+    Request the user to input the id of the
+    transaction to be deleted 
+    """
+    id = "id_" + input('\nType the id you wish to exclude: ')
+    data_stored = transactions.pop(id)
+    print(f'Transaction{data_stored[id]} - "{data_stored["name"]}," €{data_stored["value"]:.2f} was deleted!')
 
 def editTransaction():
     pass
