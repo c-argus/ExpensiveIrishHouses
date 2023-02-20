@@ -2,15 +2,14 @@ from datetime import datetime
 import json
 
 """
-Dictionary to store data from transactions
-Handling exceptions in case json file is blank
-"""
+    Dictionary to store data from transactions
+    Handling exceptions in case json file is blank
+    """
 try:
     with open('transactions.json', 'r') as file:
         transactions = json.loads(file.read())
-
-    id_transaction = transactions["idtransaction"]
-    transactions.pop("idtransaction")
+        id_transaction = transactions["idtransaction"]
+        transactions.pop("idtransaction")
 except:
     transactions = {}
     id_transaction = 1
@@ -19,7 +18,7 @@ except:
 Menu functions
 """
 
-def listTransactions():
+def list_transactions():
     """
     Get the values from the transactions dictionary
     Print the transactions on the screen
@@ -30,22 +29,23 @@ def listTransactions():
         return
     print("\nYour transactions: ")
 
-    for data_stored in transactions.values():
-        print(f'{data_stored["id"]} - {data_stored["date"]} - {data_stored["name"]}: €{data_stored["value"]:.2f}')    
-    
+    for index, data_stored in enumerate(transactions.values(), start=1):
+        id = data_stored["id"]
+        name = data_stored["name"]
+        value = data_stored["value"]
+        date = data_stored["date"]
+        print('id: %s - %s - %s - € %s'%(id, name, date, value))
 
-def addTransaction():
+def addTransaction(id_transaction, transactions):
     """
     Get transactions data input by the user
     All data stored in a dictionary
     """
 
     """
-    Raises ValueError if strings 
+    Raises ValueError if strings
     cannot be converted to float.
     """
-
-    global id_transaction
 
     name = input('\nTransaction name: ')
 
@@ -62,11 +62,10 @@ def addTransaction():
         "name": name,
         "value": value,
         "date": date,
-        "id": str(id_transaction),
+        "id": len(transactions)+1,
     }
 
-    transactions["id_" + str(id_transaction)] = data_stored
-    id_transaction =+ 1
+    transactions["id" + str(len(transactions)+1)] = data_stored
     print("Data stored successfully!\n")
 
 
@@ -75,12 +74,12 @@ def deleteTransaction():
     Request the user to input the id of the
     transaction to be deleted 
     """
-    id = "id_" + input('\nType the id you wish to exclude: ')
-    data_stored = transactions.pop(id)
-    print(f'Transaction{data_stored[id]} - "{data_stored["name"]}," €{data_stored["value"]:.2f} was deleted!')
+    id = "id" + input('\nType the id you wish to exclude: ')
+    
+    print(f'Transaction{transactions[id]["id"]} - {transactions[id]["name"]} \
+    €{transactions[id]["value"]:.2f} was deleted!')
+    del transactions[id]
 
-def editTransaction():
-    pass
 
 def checkBalance():
     """
@@ -124,33 +123,33 @@ The options listTransaction, addTransaction and
 deleteTransaction will be stored in a dictionary.
 """
 
-while True:
-    op = input ("""\nChoose your option on the menu below: 
-    L - List transactions 
-    A - Add transaction 
-    D - Delete transaction 
-    E - Edit transaction 
-    C - Check balance 
-    X - Exit 
-    \rType here: """).upper()
+def runProgram():
 
-    if op == 'L':
-        listTransactions()
-    elif op == 'A':
-        addTransaction()
-        saveTransactions()
-    elif op == 'D':
-        deleteTransaction()
-        saveTransactions()
-    elif op == 'E':
-        editTransaction()
-        saveTransactions()
-    elif op == 'C':
-        checkBalance()
-    elif op == 'X':
-        exit()
-    else:
-        print("\nUnsupported choice! \n")
+    while True:
+        op = input("""\nChoose your option on the menu below: 
+        L - List transactions 
+        A - Add transaction 
+        D - Delete transaction  
+        C - Check balance 
+        E - Exit 
+        \rType here: """).upper()
+
+        if op == 'L':
+            list_transactions()
+        elif op == 'A':
+            addTransaction(id_transaction, transactions)
+            saveTransactions()
+        elif op == 'D':
+            deleteTransaction()
+            saveTransactions()
+        elif op == 'C':
+            checkBalance()
+        elif op == 'E':
+            exit()
+        else:
+            print("\nUnsupported choice! \n")
+
+runProgram()
 
 
 
