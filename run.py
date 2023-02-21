@@ -2,21 +2,24 @@ from datetime import datetime
 import json
 
 """
-    Dictionary to store data from transactions
-    Handling exceptions in case json file is blank
-    """
+Dictionary to store data from transactions
+Handling exceptions in case json file is blank
+"""
+
 try:
     with open('transactions.json', 'r') as file:
         transactions = json.loads(file.read())
         id_transaction = transactions["idtransaction"]
         transactions.pop("idtransaction")
-except:
+except Exception:
     transactions = {}
     id_transaction = 1
+
 
 """
 Menu functions
 """
+
 
 def list_transactions():
     """
@@ -34,7 +37,8 @@ def list_transactions():
         name = data_stored["name"]
         value = data_stored["value"]
         date = data_stored["date"]
-        print('id: %s - %s - %s - € %s'%(id, name, date, value))
+        print('id: %s - %s - %s - € %s' % (id, name, date, value))
+
 
 def addTransaction(id_transaction, transactions):
     """
@@ -51,12 +55,11 @@ def addTransaction(id_transaction, transactions):
 
     while True:
         try:
-            value = float(input('Transaction value (use a - signal if expenses): '))
+            value = float(input('Transaction value (use a - signal if expenses): '))  # noqa E501
             break
         except ValueError:
             print("Invalid data. Please try again.")
-    
-    date = str(datetime.now())
+        date = str(datetime.now())
 
     data_stored = {
         "name": name,
@@ -72,10 +75,9 @@ def addTransaction(id_transaction, transactions):
 def deleteTransaction():
     """
     Request the user to input the id of the
-    transaction to be deleted 
+    transaction to be deleted
     """
     id = "id" + input('\nType the id you wish to exclude: ')
-    
     print(f'Transaction{transactions[id]["id"]} - {transactions[id]["name"]} \
     €{transactions[id]["value"]:.2f} was deleted!')
     del transactions[id]
@@ -91,6 +93,7 @@ def checkBalance():
 
     print(f'Your balance is €{balance:.2f}')
 
+
 def saveTransactions():
     """
     Function to save all the data provided by the user
@@ -105,33 +108,33 @@ def saveTransactions():
         file.write(json.dumps(c))
 
 
-"""
-Get user to input an option on the menu.
-Using ()upper to  converts characters to uppercase,
-so the user can input uppercase or not
-and it won't get an error message back
-"""
-
-"""
-Menu created by conditional statements 
-to prompt the user to enter their
-selection
-"""
-
-"""
-The options listTransaction, addTransaction and
-deleteTransaction will be stored in a dictionary.
-"""
-
 def runProgram():
 
+    """
+    Get user to input an option on the menu.
+    Using ()upper to  converts characters to uppercase,
+    so the user can input uppercase or not
+    and it won't get an error message back
+    """
+
+    """
+    Menu created by conditional statements
+    to prompt the user to enter their
+    selection
+    """
+
+    """
+    The options listTransaction, addTransaction and
+    deleteTransaction will be stored in a dictionary.
+    """
+
     while True:
-        op = input("""\nChoose your option on the menu below: 
-        L - List transactions 
-        A - Add transaction 
-        D - Delete transaction  
-        C - Check balance 
-        E - Exit 
+        op = input("""\nChoose your option on the menu below:
+        L - List transactions
+        A - Add transaction
+        D - Delete transaction
+        C - Check balance
+        E - Exit
         \rType here: """).upper()
 
         if op == 'L':
@@ -149,7 +152,5 @@ def runProgram():
         else:
             print("\nUnsupported choice! \n")
 
+
 runProgram()
-
-
-
