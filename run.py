@@ -40,7 +40,7 @@ def list_transactions():
         print('id: %s - %s - %s - € %s' % (id, name, date, value))
 
 
-def addTransaction(id_transaction, transactions):
+def add_transaction(id_transaction, transactions):
     """
     Get transactions data input by the user
     All data stored in a dictionary
@@ -72,7 +72,7 @@ def addTransaction(id_transaction, transactions):
     print("Data stored successfully!\n")
 
 
-def deleteTransaction():
+def delete_transaction():
     """
     Request the user to input the id of the
     transaction to be deleted
@@ -108,7 +108,7 @@ def saveTransactions():
         file.write(json.dumps(c))
 
 
-def runProgram():
+def Program():
 
     """
     Get user to input an option on the menu.
@@ -124,8 +124,8 @@ def runProgram():
     """
 
     """
-    The options listTransaction, addTransaction and
-    deleteTransaction will be stored in a dictionary.
+    The options listTransaction, add_transaction and
+    delete_transaction will be stored in a dictionary.
     """
 
     while True:
@@ -140,10 +140,10 @@ def runProgram():
         if op == 'L':
             list_transactions()
         elif op == 'A':
-            addTransaction(id_transaction, transactions)
+            add_transaction(id_transaction, transactions)
             saveTransactions()
         elif op == 'D':
-            deleteTransaction()
+            delete_transaction()
             saveTransactions()
         elif op == 'C':
             checkBalance()
@@ -153,4 +153,4 @@ def runProgram():
             print("\nUnsupported choice! \n")
 
 
-runProgram()
+Program()
