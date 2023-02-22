@@ -51,11 +51,11 @@ def add_transaction(id_transaction, transactions):
     cannot be converted to float.
     """
 
-    name = input('\nTransaction name: ')
+    name = input('\nTransaction name: \n')
 
     while True:
         try:
-            value = float(input('Transaction value (use a - signal if expenses): '))  # noqa E501
+            value = float(input('Transaction value (use a - signal if expenses): \n'))  # noqa E501
             break
         except ValueError:
             print("Invalid data. Please try again.")
@@ -77,7 +77,7 @@ def delete_transaction():
     Request the user to input the id of the
     transaction to be deleted
     """
-    id = "id" + input('\nType the id you wish to exclude: ')
+    id = "id" + input('\nType the id you wish to exclude: \n')
     print(f'Transaction{transactions[id]["id"]} - {transactions[id]["name"]} \
     €{transactions[id]["value"]:.2f} was deleted!')
     del transactions[id]
@@ -135,7 +135,7 @@ def Program():
         D - Delete transaction
         C - Check balance
         E - Exit
-        \rType here: """).upper()
+        \rType here: \n""").upper()
 
         if op == 'L':
             list_transactions()
