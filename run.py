@@ -9,9 +9,8 @@ Handling exceptions in case json file is blank
 try:
     with open('transactions.json', 'r') as file:
         transactions = json.loads(file.read())
-
-        id_transaction = transactions["idtransaction"]
-        transactions.pop("idtransaction")
+    id_transaction = transactions["idtransaction"]
+    transactions.pop("idtransaction")
 except Exception:
     transactions = {}
     id_transaction = 1
@@ -33,15 +32,17 @@ def list_transactions():
         return
     print("\nYour transactions: ")
 
-    for index, data_stored in enumerate(transactions.values(), start=1):
+    for data_stored in transactions.values():
+
+
         id = data_stored["id"]
         name = data_stored["name"]
         value = data_stored["value"]
         date = data_stored["date"]
-        print('id: %s - %s - %s - € %s' % (id, name, date, value))
+        print(f'{data_stored["id"]} - {data_stored["date"]} - {data_stored["name"]}: €{data_stored["value"]:.2f}') 
 
 
-def add_transaction():
+def add_transaction(id_transaction):
     """
     Get transactions data input by the user
     All data stored in a dictionary
@@ -51,17 +52,15 @@ def add_transaction():
     Raises ValueError if strings
     cannot be converted to float.
     """
-    global id_transaction
 
-    name = input('\nTransaction name: \n')
+    name = input('\nTransaction name: ')
 
     while True:
         try:
-            value = float(input('Transaction value (use a - signal if expenses): \n'))  # noqa E501
+            value = float(input('Transaction value (use a - signal if expenses): '))  # noqa E501
             break
         except ValueError:
             print("Invalid data. Please try again.")
-
     date = str(datetime.now())
 
     data_stored = {
@@ -71,8 +70,8 @@ def add_transaction():
         "id": str(id_transaction),
     }
 
-    transactions["id" + str(transactions)] = data_stored
-    id_transaction = 1
+    transactions["id_" + str(id_transaction)] = data_stored
+    id_transaction += 1
     print("Data stored successfully!\n")
 
 
@@ -82,9 +81,8 @@ def delete_transaction():
     transaction to be deleted
     """
     id = "id" + input('\nType the id you wish to exclude: ')
-    print(f'Transaction{transactions[id]["id"]} - {transactions[id]["name"]} \
-    €{transactions[id]["value"]:.2f} was deleted!')
-    del transactions[id]
+    data_stored = transactions.pop(id)
+    print(f'Transaction {data_stored["id"]} - "{data_stored["name"]}," €{data_stored["value"]:.2f} was deleted!')
 
 
 def checkBalance():
@@ -133,7 +131,7 @@ def Program():
     """
 
     while True:
-        op = input("""\nChoose your option on the menu below: 
+        op = input("""\nChoose your option on the menu below:
         L - List transactions
         A - Add transaction
         D - Delete transaction
@@ -144,7 +142,7 @@ def Program():
         if op == 'L':
             list_transactions()
         elif op == 'A':
-            add_transaction()
+            add_transaction(id_transaction)
             saveTransactions()
         elif op == 'D':
             delete_transaction()
