@@ -55,7 +55,7 @@ def add_transaction(id_transaction, transactions):
 
     while True:
         try:
-            value = float(input('Transaction value (use a minus sign if an expense): \n'))  # noqa E501
+            value = float(input('Transaction value (use a - signal if expenses): \n'))  # noqa E501
             break
         except ValueError:
             print("Invalid data. Please try again.")
@@ -77,7 +77,7 @@ def delete_transaction():
     Request the user to input the id of the
     transaction to be deleted
     """
-    id = "id" + input('\nType the id you wish to exclude: \n')
+    id = "id" + input('\nType the id you wish to exclude: ')
     print(f'Transaction{transactions[id]["id"]} - {transactions[id]["name"]} \
     €{transactions[id]["value"]:.2f} was deleted!')
     del transactions[id]
@@ -127,19 +127,15 @@ def Program():
     The options listTransaction, add_transaction and
     delete_transaction will be stored in a dictionary.
     """
-    input("""\nWelcome to Expensive Irish Houses app\n
-    \rThis app will allow you to log transactions,
-    \rto help you save for your dream home!\n
-    Press enter to start""")
 
     while True:
-        op = input("""\nChoose your option on the menu below:
+        op = input("""\nTrack your finances!\n \rChoose your option on the menu below:
         L - List transactions
         A - Add transaction
         D - Delete transaction
         C - Check balance
         E - Exit
-        \rType here: \n""").upper()
+        \rType here: """).upper()
 
         if op == 'L':
             list_transactions()
