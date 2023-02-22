@@ -59,7 +59,7 @@ def add_transaction(id_transaction, transactions):
             break
         except ValueError:
             print("Invalid data. Please try again.")
-        date = str(datetime.now())
+    date = str(datetime.now())
 
     data_stored = {
         "name": name,
