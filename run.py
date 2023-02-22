@@ -9,6 +9,7 @@ Handling exceptions in case json file is blank
 try:
     with open('transactions.json', 'r') as file:
         transactions = json.loads(file.read())
+
         id_transaction = transactions["idtransaction"]
         transactions.pop("idtransaction")
 except Exception:
@@ -40,7 +41,7 @@ def list_transactions():
         print('id: %s - %s - %s - € %s' % (id, name, date, value))
 
 
-def add_transaction(id_transaction, transactions):
+def add_transaction():
     """
     Get transactions data input by the user
     All data stored in a dictionary
@@ -50,6 +51,7 @@ def add_transaction(id_transaction, transactions):
     Raises ValueError if strings
     cannot be converted to float.
     """
+    global id_transaction
 
     name = input('\nTransaction name: \n')
 
@@ -59,16 +61,18 @@ def add_transaction(id_transaction, transactions):
             break
         except ValueError:
             print("Invalid data. Please try again.")
+
     date = str(datetime.now())
 
     data_stored = {
         "name": name,
         "value": value,
         "date": date,
-        "id": len(transactions)+1,
+        "id": str(id_transaction),
     }
 
-    transactions["id" + str(len(transactions)+1)] = data_stored
+    transactions["id" + str(transactions)] = data_stored
+    id_transaction = 1
     print("Data stored successfully!\n")
 
 
@@ -129,7 +133,7 @@ def Program():
     """
 
     while True:
-        op = input("""\nTrack your finances!\n \rChoose your option on the menu below: 
+        op = input("""\nChoose your option on the menu below: 
         L - List transactions
         A - Add transaction
         D - Delete transaction
@@ -140,7 +144,7 @@ def Program():
         if op == 'L':
             list_transactions()
         elif op == 'A':
-            add_transaction(id_transaction, transactions)
+            add_transaction()
             saveTransactions()
         elif op == 'D':
             delete_transaction()
