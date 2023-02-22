@@ -129,7 +129,7 @@ def Program():
     """
 
     while True:
-        op = input("""\nTrack your finances!\n \rChoose your option on the menu below:
+        op = input("""\nTrack your finances!\n \rChoose your option on the menu below: 
         L - List transactions
         A - Add transaction
         D - Delete transaction
