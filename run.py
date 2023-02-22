@@ -129,7 +129,7 @@ def Program():
     """
     input("""\nWelcome to Expensive Irish Houses app\n
     \rThis app will allow you to log transactions,
-    \rto help you save for your dream home
+    \rto help you save for your dream home!\n
     Press enter to start""")
 
     while True:
