@@ -9,11 +9,8 @@ Handling exceptions in case json file is blank
 try:
     with open('transactions.json', 'r') as file:
         transactions = json.loads(file.read())
-    id_transaction = transactions["idtransaction"]
-    transactions.pop("idtransaction")
 except Exception:
     transactions = {}
-    id_transaction = 1
 
 
 """
@@ -33,16 +30,10 @@ def list_transactions():
     print("\nYour transactions: ")
 
     for data_stored in transactions.values():
-
-
-        id = data_stored["id"]
-        name = data_stored["name"]
-        value = data_stored["value"]
-        date = data_stored["date"]
         print(f'{data_stored["id"]} - {data_stored["date"]} - {data_stored["name"]}: €{data_stored["value"]:.2f}') 
 
 
-def add_transaction(id_transaction):
+def add_transaction():
     """
     Get transactions data input by the user
     All data stored in a dictionary
@@ -63,15 +54,17 @@ def add_transaction(id_transaction):
             print("Invalid data. Please try again.")
     date = str(datetime.now())
 
+    id = str(len(transactions)+1)
+
     data_stored = {
         "name": name,
         "value": value,
         "date": date,
-        "id": str(id_transaction),
+        "id": id,
     }
-
-    transactions["id_" + str(id_transaction)] = data_stored
-    id_transaction += 1
+    print("_________id" + id)
+    print(transactions)
+    transactions["id" + id] = data_stored
     print("Data stored successfully!\n")
 
 
@@ -103,11 +96,10 @@ def saveTransactions():
     For future checkings, and deleting
     """
 
-    c = transactions.copy()
-    c["idtransaction"] = id_transaction
+    transactions_copy = transactions.copy()
 
     with open('transactions.json', 'w') as file:
-        file.write(json.dumps(c))
+        file.write(json.dumps(transactions_copy))
 
 
 def Program():
@@ -142,7 +134,7 @@ def Program():
         if op == 'L':
             list_transactions()
         elif op == 'A':
-            add_transaction(id_transaction)
+            add_transaction()
             saveTransactions()
         elif op == 'D':
             delete_transaction()
