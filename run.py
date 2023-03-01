@@ -6,12 +6,9 @@ Dictionary to store data from transactions
 Handling exceptions in case json file is blank
 """
 
-try:
+def get_transactions():
     with open('transactions.json', 'r') as file:
-        transactions = json.loads(file.read())
-except Exception:
-    transactions = {}
-
+        return json.loads(file.read())
 
 """
 Menu functions
@@ -24,6 +21,8 @@ def list_transactions():
     Print the transactions on the screen
     for the user
     """
+    transactions = get_transactions()
+
     if len(transactions) == 0:
         print("\nNo transactions!")
         return
@@ -43,7 +42,7 @@ def add_transaction():
     Raises ValueError if strings
     cannot be converted to float.
     """
-
+    transactions = get_transactions()
     name = input('\nTransaction name: ')
 
     while True:
@@ -62,26 +61,41 @@ def add_transaction():
         "date": date,
         "id": id,
     }
-    print("_________id" + id)
-    print(transactions)
+
     transactions["id" + id] = data_stored
     print("Data stored successfully!\n")
-
+    saveTransactions(transactions)
 
 def delete_transaction():
     """
     Request the user to input the id of the
     transaction to be deleted
     """
+    transactions = get_transactions()
+
     id = "id" + input('\nType the id you wish to exclude: ')
     data_stored = transactions.pop(id)
     print(f'Transaction {data_stored["id"]} - "{data_stored["name"]}," €{data_stored["value"]:.2f} was deleted!')
+    
+    update_transaction()
 
+def update_transaction():
+    transactions = get_transactions()
+
+    updated_transactions = {}; 
+    for i, key in enumerate(transactions):
+        index = str((i + 1))
+        updated_transactions['id'+index] = transactions[key]
+        updated_transactions['id'+index]['id'] = i + 1
+  
+    saveTransactions(updated_transactions)
+    
 
 def checkBalance():
     """
     Show balance on screen for the user
     """
+    transactions = get_transactions()
     balance = 0
     for transaction in transactions.values():
         balance += transaction["value"]
@@ -89,17 +103,16 @@ def checkBalance():
     print(f'Your balance is €{balance:.2f}')
 
 
-def saveTransactions():
+def saveTransactions(update_transactions={}):
     """
     Function to save all the data provided by the user
     in a JSON file
     For future checkings, and deleting
     """
+    if len(update_transactions) != 0:
+        with open('transactions.json', 'w') as file:
+            file.write(json.dumps(update_transactions))
 
-    transactions_copy = transactions.copy()
-
-    with open('transactions.json', 'w') as file:
-        file.write(json.dumps(transactions_copy))
 
 
 def Program():
@@ -135,10 +148,8 @@ def Program():
             list_transactions()
         elif op == 'A':
             add_transaction()
-            saveTransactions()
         elif op == 'D':
             delete_transaction()
-            saveTransactions()
         elif op == 'C':
             checkBalance()
         elif op == 'E':
