@@ -27,6 +27,9 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 ## Menu
 * The inicial input request the user to select an option.
 * Despite of the menu options beein in capital letter, the user can input also in lowercase without getting an error message.
-* If a non-correspondent letter is pressed the user gets and error message.
 
-![Menu](./assets/images/menu_eih.JPG) 
+![Menu](./assets/images/menu_eih.JPG)
+
+* If a non-correspondent letter is pressed the user gets and error message and get to chosse again from the options on the menu.
+
+![Menu_error_message](./assets/images/menu_error_eih.JPG) 
