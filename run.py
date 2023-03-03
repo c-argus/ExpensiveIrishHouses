@@ -68,13 +68,15 @@ def delete_transaction():
     transaction to be deleted
     """
     transactions = get_transactions()
-    #print('>>> delete_transaction')
-    #print(transactions)
     id = "id" + input('\nType the id you wish to exclude: ')
     data_stored = transactions.pop(id)
+    if len(transactions) > 0:
+        save_transactions(transactions)
+    else:
+        save_transactions({})
+
     print(f'Transaction {data_stored["id"]} - "{data_stored["name"]}," €{data_stored["value"]:.2f} was deleted!')
 
-    save_transactions(transactions)
     update_transaction()
 
 def update_transaction():
@@ -94,10 +96,8 @@ def save_transactions(update_transactions):
     in a JSON file
     For future checkings, and deleting
     """
-    # print('>>>> len(update_transactions)', len(update_transactions))
-    if len(update_transactions) > 0:
-        with open('transactions.json', 'w') as file:
-            file.write(json.dumps(update_transactions))
+    with open('transactions.json', 'w') as file:
+        file.write(json.dumps(update_transactions))
 
 def check_balance():
     """
