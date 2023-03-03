@@ -7,7 +7,7 @@ With a clean visual the user will be able to see, delete in form of a list all t
 The live website on Heroku can be accessed at the following link: [Live Website on Heroku](https://expensive-irish-houses.herokuapp.com/)
 
 ## Content
-* [Introduction](#training-evaulation-quiz)
+* [Introduction](#expensive-irish-houses)
 
 * [Features](#features)
 
@@ -20,4 +20,13 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 * [Testing](#testing)
 
 * [Deployment](#deployment)
+
 * [Credits](#credits)
+
+# Features
+## Menu
+* The inicial input request the user to select an option.
+* Despite of the menu options beein in capital letter, the user can input also in lowercase without getting an error message.
+* If a non-correspondent letter is pressed the user gets and error message.
+
+![Menu](./assets/images/menu_eih.JPG) 

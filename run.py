@@ -147,7 +147,7 @@ def Program():
         D - Delete transaction
         C - Check balance
         E - Exit
-        \rType here: """).upper()
+        \rType here and press enter: """).upper()
 
         if op == 'L':
             list_transactions()
