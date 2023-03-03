@@ -5,13 +5,18 @@ import json
 Dictionary to store data from transactions
 Handling exceptions in case json file is blank
 """
+
+
 def get_transactions():
     with open('transactions.json', 'r') as file:
         return json.loads(file.read())
 
+
 """
 Menu functions
 """
+
+
 def list_transactions():
     """
     Get the values from the transactions dictionary
@@ -25,7 +30,7 @@ def list_transactions():
         return
     print("\nYour transactions: ")
     for data_stored in transactions.values():
-        print(f'{data_stored["id"]} - {data_stored["date"]} - {data_stored["name"]}: €{data_stored["value"]:.2f}')
+        print(f'{data_stored["id"]} - {data_stored["date"]} - {data_stored["name"]}: €{data_stored["value"]:.2f}')  # noqa E501
 
 
 def add_transaction():
@@ -62,6 +67,7 @@ def add_transaction():
     print("Data stored successfully!\n")
     save_transactions(transactions)
 
+
 def delete_transaction():
     """
     Request the user to input the id of the
@@ -75,20 +81,22 @@ def delete_transaction():
     else:
         save_transactions({})
 
-    print(f'Transaction {data_stored["id"]} - "{data_stored["name"]}," €{data_stored["value"]:.2f} was deleted!')
+    print(f'Transaction {data_stored["id"]} - "{data_stored["name"]}," €{data_stored["value"]:.2f} was deleted!')  # noqa E501
 
     update_transaction()
+
 
 def update_transaction():
     transactions = get_transactions()
 
-    updated_transactions = {};
+    updated_transactions = {}
     for i, key in enumerate(transactions):
         index = str((i + 1))
         updated_transactions['id'+index] = transactions[key]
         updated_transactions['id'+index]['id'] = i + 1
 
     save_transactions(updated_transactions)
+
 
 def save_transactions(update_transactions):
     """
@@ -98,6 +106,7 @@ def save_transactions(update_transactions):
     """
     with open('transactions.json', 'w') as file:
         file.write(json.dumps(update_transactions))
+
 
 def check_balance():
     """
@@ -109,6 +118,7 @@ def check_balance():
         balance += transaction["value"]
 
     print(f'Your balance is €{balance:.2f}')
+
 
 def Program():
 
