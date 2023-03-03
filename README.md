@@ -8,6 +8,7 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 
 ## Content
 * [Introduction](#expensive-irish-houses)
+    * [Menu](#menu)
 
 * [Features](#features)
 
@@ -30,6 +31,16 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 
 ![Menu](./assets/images/menu_eih.JPG)
 
-* If a non-correspondent letter is pressed the user gets and error message and get to chosse again from the options on the menu.
+* If a non-correspondent letter is pressed, a validation message appears informing the user and they get to choose it again from the options on the menu.
 
-![Menu_error_message](./assets/images/menu_error_eih.JPG) 
+![Menu_error_message](./assets/images/menu_error_eih.JPG)
+
+## Menu features
+### List
+* This feature print the transactions on the screen for the user.
+
+![List](./assets/images/list_eih.JPG)
+
+* If the transactions list is empty, the user will get a validation message informing about it.
+
+![Menu_validation](./assets/images/menu_validation_eih.JPG)
