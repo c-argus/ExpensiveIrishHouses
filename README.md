@@ -92,6 +92,7 @@ The design of the app was intended to be streamlined and accessible. Features we
 ### Design
 * The design of the finance app is simple and straightforward. In the future the possibility of creating graphs based on the date that has been input will be added to make it more visual for the user. The instructions provided to the user make it easy to navigate and the errors messages help when needed.
 * For the code, loops were used to iterate throughout the menu features.
+* The flowchart was done manually.
 
 ## Technologies and Languages Used
 * [Github](https://github.com/) and [Gitpod](https://www.gitpod.io/) to create the Python code.
