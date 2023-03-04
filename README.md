@@ -20,7 +20,7 @@ The live website on Heroku can be accessed at the following link: [Live Website 
     * [User stories](#user-stories)
         * [User goals](#user-goals)
     * [Design](#design)
-* [Design](#design)
+    * [Process Flow](process-flow)
 * [Technologies Used](#technologies-used)   
 * [Testing](#testing)
 * [Deployment](#deployment)
@@ -91,5 +91,12 @@ The design of the game was all thinking about make things simple for the user. W
 ### Design
 * The design of the finance app is simple and straightforward. In the future the possibility of creating graphs based on the date that has been input will be added to make it more visual for the user. The instructions providade to the user make it easy to navigate and the errors messages helps it when needed.
 * For the code, it was used loop to iterate throughout the menu features.
+
+### Process Flow
+Below is flow chart that demonstrates what actions take place while the user is in the app.
+
+![Flow chart]()
+
+
 
 
