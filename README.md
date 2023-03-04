@@ -15,6 +15,7 @@ The live website on Heroku can be accessed at the following link: [Live Website 
         * [Delete Transaction](#delete-transaction)
         * [Check Balance](#check-balance)
         * [Exit](#exit)
+    * [Features Left to Implement](features-left-to-implement)
 * [User Experience](#user-experience)
 * [Design](#design)
 * [Technologies Used](#technologies-used)   
@@ -68,3 +69,9 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 * The exit input, exit the application.
 
 ![Exit](./assets/images/exit_eih.JPG)
+
+## Features Left to Implement
+* Provide the user the possibility of keeping a Google spreadsheet with all the transactions saved in the app so it can be used for external purposes.
+* For *List Transactions*, there will be a new functionality of listing the transactions per month.
+* Another feature for the menu will be added to make it possible for the user to edit the transactions.
+
