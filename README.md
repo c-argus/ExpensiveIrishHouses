@@ -106,9 +106,7 @@ The code was tested using the [CI Python Linter](https://pep8ci.herokuapp.com/).
 
 ## Bugs
 ### Fixed bugs
-* **ID in the json.file wasn't updating:** used str(leng)+1 and enumerate to organize the dictionary list.
-* **Delete transaction:** the dictionary was being subscribed after deleting a transaction, to fix I created a new function called update_transaction and applied for all the functions and the json.file. This way the jason.file was being updated and reorganized after a deletion.
-* Other bugs were mostly quotation marks forgotten, colon or semicolon in the wrong place or indentation problem.
+* **Issue while generating new IDs (keys):** after deleting a transaction the application would get stuck and generate the same ID for each new transaction. Causing the last transaction to be overriden. **Solution:** creation of the update_transaction method to update the IDs in sequence so the next ID will be generated correctly.
 
 ## Deployment
 The project was deployed on Heroku using the following method:
