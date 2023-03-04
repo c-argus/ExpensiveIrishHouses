@@ -10,10 +10,11 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 * [Introduction](#expensive-irish-houses)
 * [Features](#features)
     * [Menu](#menu)
-    * [Add Transaction](#addtransaction)
-    * [Delete transaction](#delete_transaction)
-    * [Check balance](#check_balance)
-    * [Exit](#exit)
+        * [List Transaction](#list_transaction)
+        * [Add Transaction](#add_transaction)
+        * [Delete Transaction](#delete_transaction)
+        * [Check Balance](#check_balance)
+        * [Exit](#exit)
 * [User Experience](#user-experience)
 * [Design](#design)
 * [Technologies Used](#technologies-used)   
@@ -32,8 +33,7 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 
 ![Menu_error_message](./assets/images/menu_error_eih.JPG)
 
-## Menu features
-## List
+### List Transactions
 * This feature print the transactions on the screen for the user.
 
 ![List](./assets/images/list_eih.JPG)
@@ -42,7 +42,7 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 
 ![Menu_validation](./assets/images/menu_validation_eih.JPG)
 
-## Add Transaction
+### Add Transaction
 * If the user choose to add a transaction it will be requested to insert a description and an amount. In case on an expense the user has to use the minus sign.
 
 ![Add](./assets/images/add_eih.JPG)
@@ -50,3 +50,11 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 * in this section, if the user insert characters instead of number for the amount, it will get a validation message and will be requested to insert the amount again.
 
 ![Add_error](./assets/images/add_error_eih.JPG)
+
+### Delete Transaction
+* If the user wish to delete a transaction from the list the delete selection will do that. 
+* What the user needs to do is choose the ID for the transaction. 
+* After deleting the transaction the user will get a message with the information about what was deleted.
+* Once a transaction is deleted, the transactions list will be updated.
+
+![Delete](./assets/images/delete_eih.JPG)
