@@ -98,11 +98,6 @@ The design of the game was all thinking about make things simple for the user. W
 ### Acessibility
 The app provides error messages and instruct the user to correct if inserting the wrong data, e.g.: inserting words where should be numbers, typing the wrong selection letter or trying to access a list with no date in it.
 
-### Process Flow
-Below is flow chart that demonstrates what actions take place while the user is in the app.
-
-![Flow chart]()
-
 ## Technologies and Languages Used
 * [Github](https://github.com/) and [Gitpod](https://www.gitpod.io/) to create the Python code.
 * [Heroku](https://www.heroku.com/) for deployment.
