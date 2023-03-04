@@ -7,7 +7,7 @@ With a clean visual the user will be able to see, delete in form of a list all t
 The live website on Heroku can be accessed at the following link: [Live Website on Heroku](https://expensive-irish-houses.herokuapp.com/)
 
 ## Content
-* [Introduction](#expensivei-rish-houses-finances-app)
+* [Introduction](#expensive-irish-houses-finances-app)
 * [Features](#features)
     * [Menu](#menu)
         * [List Transactions](#list-transactions)
@@ -47,7 +47,7 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 
 ![Add](./assets/images/add_eih.JPG)
 
-* in this section, if the user insert characters instead of number for the amount, it will get a validation message and will be requested to insert the amount again.
+* In this section, if the user insert characters instead of number for the amount, it will get a validation message and will be requested to insert the amount again.
 
 ![Add_error](./assets/images/add_error_eih.JPG)
 
@@ -63,3 +63,8 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 * The check balance input shows on the screen the user's balance.
 
 ![Balance](./assets/images/balance_eih.JPG)
+
+### **Exit**
+* The exit input, exit the application.
+
+![Exit](./assets/images/exit_eih.JPG)
