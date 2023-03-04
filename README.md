@@ -17,13 +17,16 @@ The live website on Heroku can be accessed at the following link: [Live Website 
         * [Exit](#exit)
     * [Features Left to Implement](features-left-to-implement)
 * [User Experience](#user-experience)
+    * [User stories](#user-stories)
+        * [User goals](#user-goals)
+    * [Design](#design)
 * [Design](#design)
 * [Technologies Used](#technologies-used)   
 * [Testing](#testing)
 * [Deployment](#deployment)
 * [Credits](#credits)
 
-# Features
+## Features
 ## Menu
 * The inicial input request the user to select an option.
 * Despite of the menu options beein in capital letter, the user can input also in lowercase without getting an error message.
@@ -73,5 +76,20 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 ## Features Left to Implement
 * Provide the user the possibility of keeping a Google spreadsheet with all the transactions saved in the app so it can be used for external purposes.
 * For *List Transactions*, there will be a new functionality of listing the transactions per month.
+* For *Add Transaction* there will be the possibility of adding more than one transaction without returning to the menu, to make it more practical for the user.
 * Another feature for the menu will be added to make it possible for the user to edit the transactions.
+
+## User Experience (UX)
+The design of the game was all thinking about make things simple for the user. With simple features and clear context to help them navigate through the app.
+
+### User stories
+#### User goals
+* The main goal is to provide to the users a money management solution in their every day lives.
+* It is easy to navigate, making it intuitive for the users, even the ones that are not tech experts.
+* It provides error messages if inserting the wrong data, e.g.: inserting words where should be numbers, typing the wrong selection letter or trying to access a list with no date in it.
+
+### Design
+* The design of the finance app is simple and straightforward. In the future the possibility of creating graphs based on the date that has been input will be added to make it more visual for the user. The instructions providade to the user make it easy to navigate and the errors messages helps it when needed.
+* For the code, it was used loop to iterate throughout the menu features.
+
 
