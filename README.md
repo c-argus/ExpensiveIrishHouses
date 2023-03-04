@@ -27,6 +27,7 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 * [Bugs](#bugs)    
 * [Deployment](#deployment)
 * [Credits](#credits)
+* [Acknowledgements](#acknowledgements)
 
 ## Features
 ## Menu
@@ -103,9 +104,9 @@ Below is flow chart that demonstrates what actions take place while the user is 
 ![Flow chart]()
 
 ## Technologies and Languages Used
-* [Github](https://github.com/) and [Gitpod](https://www.gitpod.io/)
-* [Heroku](https://www.heroku.com/) for deployment
-* Language: [Python](https://www.python.org/)
+* [Github](https://github.com/) and [Gitpod](https://www.gitpod.io/) to create the Python code.
+* [Heroku](https://www.heroku.com/) for deployment.
+* Language: [Python](https://www.python.org/).
 
 ## Testing
 The code was tested using the [CI Python Linter](https://pep8ci.herokuapp.com/). All my code was up to PEP8 standards, except for a few erros with blank spaces and some lines to long. As an advise from my mentor I used *# noqa E501* to fix the long lines. The whole code was fixed so is all clear, no erros found.
@@ -131,9 +132,13 @@ The project was deployed on Heroku using the following method:
 9. Choose to  manually deploy using this deploy branch option.  
 10. Finally we see the *App was successfully deployed* message, the button on the bottom take you to the deployed link.
 
+## Credits
+* For inspiration I used two videos that can be found [here](https://www.youtube.com/watch?v=IbdgcUqWSeo&t=194s) and [here](https://www.youtube.com/watch?v=A3PRB1Wc0UA).
 
+## Acknowledgements
+* Thank you to my new mentor Rory Sheridan for the amazing support and tips.
+* Thank you to my parter and friends that helped me in the hard moments troughout the project.
 
-* [Credits](#credits)
 
 
 
