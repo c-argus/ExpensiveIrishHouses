@@ -8,20 +8,17 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 
 ## Content
 * [Introduction](#expensive-irish-houses)
-    * [Menu](#menu)
-
 * [Features](#features)
-
+    * [Menu](#menu)
+    * [Add Transaction](#addtransaction)
+    * [Delete transaction](#delete_transaction)
+    * [Check balance](#check_balance)
+    * [Exit](#exit)
 * [User Experience](#user-experience)
-
 * [Design](#design)
-
 * [Technologies Used](#technologies-used)   
-
 * [Testing](#testing)
-
 * [Deployment](#deployment)
-
 * [Credits](#credits)
 
 # Features
@@ -36,7 +33,7 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 ![Menu_error_message](./assets/images/menu_error_eih.JPG)
 
 ## Menu features
-### List
+## List
 * This feature print the transactions on the screen for the user.
 
 ![List](./assets/images/list_eih.JPG)
@@ -44,3 +41,12 @@ The live website on Heroku can be accessed at the following link: [Live Website 
 * If the transactions list is empty, the user will get a validation message informing about it.
 
 ![Menu_validation](./assets/images/menu_validation_eih.JPG)
+
+## Add Transaction
+* If the user choose to add a transaction it will be requested to insert a description and an amount. In case on an expense the user has to use the minus sign.
+
+![Add](./assets/images/add_eih.JPG)
+
+* in this section, if the user insert characters instead of number for the amount, it will get a validation message and will be requested to insert the amount again.
+
+![Add_error](./assets/images/add_error_eih.JPG)
